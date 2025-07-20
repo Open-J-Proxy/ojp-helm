@@ -6,7 +6,7 @@ Deploy OJP Server using `ojp/ojp-server` Helm Charts.
 Install OJP Server
 ```console
 # Add the OJP Helm repository
-helm repo add ojp https://ojp.github.io/ojp-helm
+helm repo add ojp https://Open-JDBC-Proxy.github.io/ojp-helm
 
 # Update the Helm repository
 helm repo update
@@ -20,17 +20,6 @@ Uninstall OJP Server
 ```console
 helm uninstall ojp-server --namespace ojp
 ```
-
-<!-- server:
-  port: 1059
-  prometheusPort: 9090
-  threadPoolSize: 200
-  circuitBreakerTimeout: "60000"
-  allowedIps: "0.0.0.0/0"
-  prometheusAllowedIps: "0.0.0.0/0"
-  opentelemetry:
-    enabled: true
-  logLevel: INFO -->
 
 ### App parameters
 | Name                       | Description                                    | Value                  |
