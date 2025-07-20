@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ include "ojp-server.fullname" . }}
+  labels:
+    {{- include "ojp-server.labels" . | nindent 4 }}
+data:
+  OJP_SERVER_PORT: {{ .Values.server.port | quote }}
+  OJP_PROMETHEUS_PORT: {{ .Values.server.prometheusPort | quote }}
+  OJP_SERVER_THREADPOOLSIZE: {{ .Values.server.threadPoolSize | quote }}
+  OJP_SERVER_CIRCUITBREAKERTIMEOUT: {{ .Values.server.circuitBreakerTimeout | quote }}
+  OJP_SERVER_ALLOWEDIPS: {{ .Values.server.allowedIps | quote }}
+  OJP_PROMETHEUS_ALLOWEDIPS: {{ .Values.server.prometheusAllowedIps | quote }}
+  OJP_OPENTELEMETRY_ENABLED: {{ .Values.server.opentelemetry.enabled | quote }}
+  OJP_SERVER_LOGLEVEL: {{ .Values.server.logLevel | quote }}

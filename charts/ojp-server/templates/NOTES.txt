@@ -1,0 +1,10 @@
+Test the installation with the steps below:
+
+1. Port-forward Server service:
+
+    {{- if .Values.server.opentelemetry.enabled }}
+    kubectl -n {{ .Release.Namespace }} port-forward svc/ojp-server {{ .Values.server.prometheusPort }}:{{ .Values.server.prometheusPort }} &
+    {{- end }}
+    kubectl -n {{ .Release.Namespace }} port-forward svc/ojp-server {{ .Values.service.port }}:{{ .Values.service.port }} &
+
+2. Happy Proxying with OJP!
