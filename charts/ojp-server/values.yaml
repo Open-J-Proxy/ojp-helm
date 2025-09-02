@@ -4,11 +4,21 @@ server:
   port: 1059
   prometheusPort: 9090
   threadPoolSize: 200
+  maxRequestSize: 4194304
+  connectionIdleTimeout: "30000"
   circuitBreakerTimeout: "60000"
+  circuitBreakerThreshold: 3
   allowedIps: "0.0.0.0/0"
   prometheusAllowedIps: "0.0.0.0/0"
   opentelemetry:
     enabled: true
+    endpoint: ""
+  slowQuerySegregation:
+    enabled: true
+    slowSlotPercentage: 20
+    idleTimeout: 10000
+    slowSlotTimeout: 120000
+    fastSlotTimeout: 60000
   logLevel: INFO
 
 image:
@@ -16,10 +26,6 @@ image:
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
-
-envFrom:
-- configMapRef:
-    name: ojp-server
 
 imagePullSecrets: []
 nameOverride: ""

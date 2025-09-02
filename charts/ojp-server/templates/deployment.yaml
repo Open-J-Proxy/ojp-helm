@@ -40,9 +40,16 @@ spec:
             - name: prometheus
               containerPort: {{ .Values.server.prometheusPort }}
               protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /
+              port: prometheus
+              scheme: HTTP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           envFrom:
+            - configMapRef:
+                name: {{ include "ojp-server.fullname" . }}
             {{- with .Values.envFrom }}
               {{- toYaml . | nindent 12 }}
             {{- end }}
