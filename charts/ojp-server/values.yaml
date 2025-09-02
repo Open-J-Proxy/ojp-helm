@@ -27,10 +27,6 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
-envFrom:
-- configMapRef:
-    name: ojp-server
-
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
