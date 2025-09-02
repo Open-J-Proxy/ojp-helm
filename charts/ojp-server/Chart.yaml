@@ -4,9 +4,9 @@ home: https://github.com/ojp/ojp-helm
 description: A OJP Server Helm chart for Kubernetes
 icon: https://raw.githubusercontent.com/Open-JDBC-Proxy/ojp/refs/heads/main/documents/images/ojp_logo.png
 maintainers:
-  - name: rrobetti (Rogerio rrobetti)
+  - name: rrobetti
     url: https://github.com/rrobetti
-  - name: petruki (Roger Florinao)
+  - name: petruki
     url: https://github.com/petruki
 
 type: application
