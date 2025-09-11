@@ -6,7 +6,7 @@ Deploy OJP Server using `ojp/ojp-server` Helm Charts.
 Install OJP Server
 ```console
 # Add the OJP Helm repository
-helm repo add ojp https://Open-JDBC-Proxy.github.io/ojp-helm
+helm repo add ojp https://Open-J-Proxy.github.io/ojp-helm
 
 # Update the Helm repository
 helm repo update
