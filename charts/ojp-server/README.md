@@ -25,7 +25,7 @@ helm uninstall ojp-server --namespace ojp
 | Name                       | Description                                    | Value                  |
 | -------------------------- | ---------------------------------------------- | ---------------------- |
 | `server.port`            | OJP Server Port                               | `1059`                 |
-| `server.prometheusPort`  | OJP Server Prometheus Port                    | `9090`                 |
+| `server.prometheusPort`  | OJP Server Prometheus Port                    | `9159`                 |
 | `server.threadPoolSize`  | OJP Server Thread Pool Size                   | `200`                  |
 | `server.maxRequestSize`  | OJP Server Max Request Size                   | `4194304`              |
 | `server.connectionIdleTimeout` | OJP Server Connection Idle Timeout | `30000`               |
@@ -40,6 +40,7 @@ helm uninstall ojp-server --namespace ojp
 | `server.slowQuerySegregation.idleTimeout` | OJP Server Slow Query Segregation Idle Timeout | `10000` |
 | `server.slowQuerySegregation.slowSlotTimeout` | OJP Server Slow Query Segregation Slow Slot Timeout | `120000` |
 | `server.slowQuerySegregation.fastSlotTimeout` | OJP Server Slow Query Segregation Fast Slot Timeout | `60000` |
+| `server.slowQuerySegregation.updateGlobalAvgInterval` | OJP Server Slow Query Segregation Update Global Average Interval | `300` |
 | `server.logLevel`        | OJP Server Log Level                       | `INFO`                |
 
 
