@@ -24,3 +24,4 @@ data:
   OJP_SERVER_SLOWQUERYSEGREGATION_FASTSLOTTIMEOUT: {{ .Values.server.slowQuerySegregation.fastSlotTimeout | quote }}
   OJP_SERVER_SLOWQUERYSEGREGATION_UPDATEGLOBALAVGINTERVAL: {{ .Values.server.slowQuerySegregation.updateGlobalAvgInterval | quote }}
   OJP_SERVER_LOGLEVEL: {{ .Values.server.logLevel | quote }}
+  OJP_LIBS_PATH: {{ .Values.server.driversPath | quote }}

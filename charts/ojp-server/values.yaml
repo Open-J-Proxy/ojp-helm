@@ -21,6 +21,7 @@ server:
     fastSlotTimeout: 60000
     updateGlobalAvgInterval: 300
   logLevel: INFO
+  driversPath: "./ojp-libs"
 
 image:
   repository: rrobetti/ojp

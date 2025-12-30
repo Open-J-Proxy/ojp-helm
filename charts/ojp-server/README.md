@@ -42,6 +42,7 @@ helm uninstall ojp-server --namespace ojp
 | `server.slowQuerySegregation.fastSlotTimeout` | OJP Server Slow Query Segregation Fast Slot Timeout | `60000` |
 | `server.slowQuerySegregation.updateGlobalAvgInterval` | OJP Server Slow Query Segregation Update Global Average Interval | `300` |
 | `server.logLevel`        | OJP Server Log Level                       | `INFO`                |
+| `server.driversPath`     | OJP Server External Libraries Directory Path | `./ojp-libs`          |
 
 
 ## Local
