@@ -1,0 +1,40 @@
+{{- /*
+Per-pod services are only created when autoscaling is disabled because:
+- Autoscaling dynamically changes the number of pods
+- Per-pod services are created based on a static replicaCount value
+- This prevents service/pod mismatches (missing services for new pods or orphaned services)
+*/ -}}
+{{- if and .Values.service.perPodService.enabled (not .Values.autoscaling.enabled) }}
+{{- $fullName := include "ojp-server.fullname" . -}}
+{{- $serviceType := .Values.service.perPodService.type -}}
+{{- $serverPort := .Values.server.port -}}
+{{- $prometheusPort := .Values.server.prometheusPort -}}
+{{- $labels := include "ojp-server.labels" . -}}
+{{- $selectorLabels := include "ojp-server.selectorLabels" . -}}
+{{- $namespace := .Release.Namespace -}}
+{{- range $i := until (int .Values.replicaCount) }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: {{ $namespace }}
+  name: {{ $fullName }}-{{ $i }}
+  labels:
+    {{- $labels | nindent 4 }}
+    statefulset.kubernetes.io/pod-name: {{ $fullName }}-{{ $i }}
+spec:
+  type: {{ $serviceType }}
+  ports:
+    - port: {{ $serverPort }}
+      targetPort: http
+      protocol: TCP
+      name: http
+    - port: {{ $prometheusPort }}
+      targetPort: prometheus
+      protocol: TCP
+      name: prometheus
+  selector:
+    {{- $selectorLabels | nindent 4 }}
+    statefulset.kubernetes.io/pod-name: {{ $fullName }}-{{ $i }}
+{{- end }}
+{{- end }}
