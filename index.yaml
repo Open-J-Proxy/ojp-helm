@@ -3,6 +3,23 @@ entries:
   ojp-server:
   - apiVersion: v2
     appVersion: 0.1.0-beta
+    created: "2026-01-08T22:31:35.207096944Z"
+    description: A OJP Server Helm chart for Kubernetes
+    digest: fcf49ed08578d459e2623f6a7bd645fdc92a3a60d14bd8cdc4c4c03b1303c413
+    home: https://github.com/Open-J-Proxy/ojp-helm
+    icon: https://raw.githubusercontent.com/Open-J-Proxy/ojp/refs/heads/main/documents/images/ojp_logo.png
+    maintainers:
+    - name: rrobetti
+      url: https://github.com/rrobetti
+    - name: petruki
+      url: https://github.com/petruki
+    name: ojp-server
+    type: application
+    urls:
+    - https://github.com/Open-J-Proxy/ojp-helm/releases/download/ojp-server-0.1.5/ojp-server-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 0.1.0-beta
     created: "2026-01-08T20:05:34.883039793Z"
     description: A OJP Server Helm chart for Kubernetes
     digest: f5f1445d613f7a6ea4c4e0a9835ebf6a9a790c4170560183c5fac72751fb098c
@@ -52,4 +69,4 @@ entries:
     urls:
     - https://github.com/Open-JDBC-Proxy/ojp-helm/releases/download/ojp-server-0.1.1/ojp-server-0.1.1.tgz
     version: 0.1.1
-generated: "2026-01-08T20:05:34.883056535Z"
+generated: "2026-01-08T22:31:35.207123173Z"
