@@ -36,14 +36,14 @@ helm uninstall ojp-server --namespace ojp
 | Name                       | Description                                    | Value                  |
 | -------------------------- | ---------------------------------------------- | ---------------------- |
 | `replicaCount`           | Number of OJP Server replicas                 | `3`                    |
-| `autoscaling.enabled`    | Enable autoscaling (overrides replicaCount)   | `false`                |
+| `autoscaling.enabled`    | Enable autoscaling (overrides replicaCount, disables per-pod services) | `false` |
 
 ### Service Parameters
 | Name                       | Description                                    | Value                  |
 | -------------------------- | ---------------------------------------------- | ---------------------- |
-| `service.type`           | Service type for headless service             | `ClusterIP`            |
+| `service.type`           | Service type (always ClusterIP for headless service) | `ClusterIP`    |
 | `service.port`           | OJP Server service port                       | `1059`                 |
-| `service.perPodService.enabled` | Enable individual per-pod services     | `true`                 |
+| `service.perPodService.enabled` | Enable individual per-pod services (disabled when autoscaling is enabled) | `true` |
 | `service.perPodService.type` | Type for per-pod services (LoadBalancer or NodePort) | `LoadBalancer` |
 
 ### App parameters

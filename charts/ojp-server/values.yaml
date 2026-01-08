@@ -45,9 +45,11 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
+  # Main headless service for StatefulSet (always clusterIP: None)
   type: ClusterIP
   port: 1059
   # Per-pod services allow individual addressability for each StatefulSet pod
+  # Note: Per-pod services are only created when autoscaling is disabled
   perPodService:
     enabled: true
     type: LoadBalancer

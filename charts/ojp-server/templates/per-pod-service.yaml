@@ -1,4 +1,4 @@
-{{- if .Values.service.perPodService.enabled }}
+{{- if and .Values.service.perPodService.enabled (not .Values.autoscaling.enabled) }}
 {{- $fullName := include "ojp-server.fullname" . -}}
 {{- $serviceType := .Values.service.perPodService.type -}}
 {{- $serverPort := .Values.server.port -}}
