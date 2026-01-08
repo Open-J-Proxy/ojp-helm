@@ -1,3 +1,9 @@
+{{- /*
+Per-pod services are only created when autoscaling is disabled because:
+- Autoscaling dynamically changes the number of pods
+- Per-pod services are created based on a static replicaCount value
+- This prevents service/pod mismatches (missing services for new pods or orphaned services)
+*/ -}}
 {{- if and .Values.service.perPodService.enabled (not .Values.autoscaling.enabled) }}
 {{- $fullName := include "ojp-server.fullname" . -}}
 {{- $serviceType := .Values.service.perPodService.type -}}

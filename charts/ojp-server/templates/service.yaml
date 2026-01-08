@@ -6,6 +6,8 @@ metadata:
   labels:
     {{- include "ojp-server.labels" . | nindent 4 }}
 spec:
+  # StatefulSets require a headless service (clusterIP: None) for pod DNS resolution
+  # The service.type value is ignored for StatefulSet services
   clusterIP: None
   ports:
     - port: {{ .Values.service.port }}
