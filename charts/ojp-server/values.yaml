@@ -47,12 +47,13 @@ securityContext: {}
 service:
   # Main headless service for StatefulSet (always clusterIP: None)
   type: ClusterIP
-  port: 1059
+  port: 1059  # Main OJP server port for client connections
   # Per-pod services allow individual addressability for each StatefulSet pod
+  # Each pod gets its own LoadBalancer with external IP for direct access
   # Note: Per-pod services are only created when autoscaling is disabled
   perPodService:
     enabled: true
-    type: LoadBalancer
+    type: LoadBalancer  # LoadBalancer for cloud (AWS/GCP/Azure), NodePort for on-premise
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
