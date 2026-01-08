@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 3
 
 server:
   port: 1059
@@ -47,6 +47,10 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 1059
+  # Per-pod services allow individual addressability for each StatefulSet pod
+  perPodService:
+    enabled: true
+    type: LoadBalancer
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   namespace: {{ .Release.Namespace }}
   name: {{ include "ojp-server.fullname" . }}
@@ -9,6 +9,7 @@ spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
+  serviceName: {{ include "ojp-server.fullname" . }}
   selector:
     matchLabels:
       {{- include "ojp-server.selectorLabels" . | nindent 6 }}

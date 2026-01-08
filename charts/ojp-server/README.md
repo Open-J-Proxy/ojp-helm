@@ -2,6 +2,15 @@
 
 Deploy OJP Server using `ojp/ojp-server` Helm Charts.
 
+## Architecture
+
+The OJP Server Helm chart uses a **StatefulSet** deployment model with individual per-pod services, allowing each OJP instance to be individually addressable. By default, the chart creates:
+- 3 replicas (configurable via `replicaCount`)
+- A headless service for StatefulSet pod discovery
+- Individual LoadBalancer services for each pod (e.g., `ojp-server-0`, `ojp-server-1`, `ojp-server-2`)
+
+This architecture ensures stable network identities and allows direct access to specific OJP instances.
+
 ## Usage
 Install OJP Server
 ```console
@@ -20,6 +29,22 @@ Uninstall OJP Server
 ```console
 helm uninstall ojp-server --namespace ojp
 ```
+
+## Configuration
+
+### Deployment Parameters
+| Name                       | Description                                    | Value                  |
+| -------------------------- | ---------------------------------------------- | ---------------------- |
+| `replicaCount`           | Number of OJP Server replicas                 | `3`                    |
+| `autoscaling.enabled`    | Enable autoscaling (overrides replicaCount)   | `false`                |
+
+### Service Parameters
+| Name                       | Description                                    | Value                  |
+| -------------------------- | ---------------------------------------------- | ---------------------- |
+| `service.type`           | Service type for headless service             | `ClusterIP`            |
+| `service.port`           | OJP Server service port                       | `1059`                 |
+| `service.perPodService.enabled` | Enable individual per-pod services     | `true`                 |
+| `service.perPodService.type` | Type for per-pod services (LoadBalancer or NodePort) | `LoadBalancer` |
 
 ### App parameters
 | Name                       | Description                                    | Value                  |

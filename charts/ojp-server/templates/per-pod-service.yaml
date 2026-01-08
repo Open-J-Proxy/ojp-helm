@@ -1,0 +1,34 @@
+{{- if .Values.service.perPodService.enabled }}
+{{- $fullName := include "ojp-server.fullname" . -}}
+{{- $serviceType := .Values.service.perPodService.type -}}
+{{- $serverPort := .Values.server.port -}}
+{{- $prometheusPort := .Values.server.prometheusPort -}}
+{{- $labels := include "ojp-server.labels" . -}}
+{{- $selectorLabels := include "ojp-server.selectorLabels" . -}}
+{{- $namespace := .Release.Namespace -}}
+{{- range $i := until (int .Values.replicaCount) }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: {{ $namespace }}
+  name: {{ $fullName }}-{{ $i }}
+  labels:
+    {{- $labels | nindent 4 }}
+    statefulset.kubernetes.io/pod-name: {{ $fullName }}-{{ $i }}
+spec:
+  type: {{ $serviceType }}
+  ports:
+    - port: {{ $serverPort }}
+      targetPort: http
+      protocol: TCP
+      name: http
+    - port: {{ $prometheusPort }}
+      targetPort: prometheus
+      protocol: TCP
+      name: prometheus
+  selector:
+    {{- $selectorLabels | nindent 4 }}
+    statefulset.kubernetes.io/pod-name: {{ $fullName }}-{{ $i }}
+{{- end }}
+{{- end }}
