@@ -2,7 +2,7 @@ replicaCount: 3
 
 server:
   port: 1059
-  prometheusPort: 9090
+  prometheusPort: 9159
   threadPoolSize: 200
   maxRequestSize: 4194304
   connectionIdleTimeout: "30000"
@@ -19,7 +19,9 @@ server:
     idleTimeout: 10000
     slowSlotTimeout: 120000
     fastSlotTimeout: 60000
+    updateGlobalAvgInterval: 300
   logLevel: INFO
+  driversPath: "./ojp-libs"
 
 image:
   repository: rrobetti/ojp
