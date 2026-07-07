@@ -85,6 +85,11 @@ helm uninstall ojp-server --namespace ojp
 | `server.opentelemetry.enabled` | OJP Server telemetry master switch   | `true`                |
 | `server.opentelemetry.endpoint` | OJP Server OpenTelemetry Endpoint | `` |
 | `server.opentelemetry.circuitBreaker.enabled` | OJP Server Circuit Breaker metrics enabled | `true` |
+| `server.opentelemetry.tracing.enabled` | OJP Server distributed tracing enabled | `false` |
+| `server.opentelemetry.tracing.exporter` | OJP Server tracing exporter (`zipkin` or `otlp`) | `zipkin` |
+| `server.opentelemetry.tracing.endpoint` | OJP Server tracing exporter endpoint | `http://localhost:9411/api/v2/spans` |
+| `server.opentelemetry.tracing.serviceName` | OJP Server tracing service name | `ojp-server` |
+| `server.opentelemetry.tracing.sampleRate` | OJP Server tracing sample rate | `1.0` |
 | `server.slowQuerySegregation.enabled` | OJP Server Slow Query Segregation Enabled | `true` |
 | `server.slowQuerySegregation.slowSlotPercentage` | OJP Server Slow Query Segregation Slow Slot Percentage | `20` |
 | `server.slowQuerySegregation.idleTimeout` | OJP Server Slow Query Segregation Idle Timeout | `10000` |

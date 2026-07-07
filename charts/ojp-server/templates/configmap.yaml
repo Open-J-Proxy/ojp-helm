@@ -18,6 +18,11 @@ data:
   OJP_TELEMETRY_ENABLED: {{ .Values.server.opentelemetry.enabled | quote }}
   OJP_OPENTELEMETRY_ENDPOINT: {{ .Values.server.opentelemetry.endpoint | quote }}
   OJP_TELEMETRY_CIRCUITBREAKER_ENABLED: {{ .Values.server.opentelemetry.circuitBreaker.enabled | quote }}
+  OJP_TRACING_ENABLED: {{ .Values.server.opentelemetry.tracing.enabled | quote }}
+  OJP_TRACING_EXPORTER: {{ .Values.server.opentelemetry.tracing.exporter | quote }}
+  OJP_TRACING_ENDPOINT: {{ .Values.server.opentelemetry.tracing.endpoint | quote }}
+  OJP_TRACING_SERVICENAME: {{ .Values.server.opentelemetry.tracing.serviceName | quote }}
+  OJP_TRACING_SAMPLERATE: {{ .Values.server.opentelemetry.tracing.sampleRate | quote }}
   OJP_SERVER_SLOWQUERYSEGREGATION_ENABLED: {{ .Values.server.slowQuerySegregation.enabled | quote }}
   OJP_SERVER_SLOWQUERYSEGREGATION_SLOWSLOTPERCENTAGE: {{ .Values.server.slowQuerySegregation.slowSlotPercentage | quote }}
   OJP_SERVER_SLOWQUERYSEGREGATION_IDLETIMEOUT: {{ .Values.server.slowQuerySegregation.idleTimeout | quote }}
