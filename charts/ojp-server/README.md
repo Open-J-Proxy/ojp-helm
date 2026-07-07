@@ -82,8 +82,9 @@ helm uninstall ojp-server --namespace ojp
 | `server.circuitBreakerThreshold` | OJP Server Circuit Breaker Threshold | `3`               |
 | `server.allowedIps`       | OJP Server Allowed IPs                        | `0.0.0.0/0`           |
 | `server.prometheusAllowedIps` | OJP Server Prometheus Allowed IPs | `0.0.0.0/0`           |
-| `server.opentelemetry.enabled` | OJP Server OpenTelemetry Enabled   | `true`                |
+| `server.opentelemetry.enabled` | OJP Server telemetry master switch   | `true`                |
 | `server.opentelemetry.endpoint` | OJP Server OpenTelemetry Endpoint | `` |
+| `server.opentelemetry.circuitBreaker.enabled` | OJP Server Circuit Breaker metrics enabled | `true` |
 | `server.slowQuerySegregation.enabled` | OJP Server Slow Query Segregation Enabled | `true` |
 | `server.slowQuerySegregation.slowSlotPercentage` | OJP Server Slow Query Segregation Slow Slot Percentage | `20` |
 | `server.slowQuerySegregation.idleTimeout` | OJP Server Slow Query Segregation Idle Timeout | `10000` |

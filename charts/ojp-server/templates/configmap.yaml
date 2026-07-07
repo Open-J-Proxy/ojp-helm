@@ -15,8 +15,9 @@ data:
   OJP_SERVER_CIRCUITBREAKERTHRESHOLD: {{ .Values.server.circuitBreakerThreshold | quote }}
   OJP_SERVER_ALLOWEDIPS: {{ .Values.server.allowedIps | quote }}
   OJP_PROMETHEUS_ALLOWEDIPS: {{ .Values.server.prometheusAllowedIps | quote }}
-  OJP_OPENTELEMETRY_ENABLED: {{ .Values.server.opentelemetry.enabled | quote }}
+  OJP_TELEMETRY_ENABLED: {{ .Values.server.opentelemetry.enabled | quote }}
   OJP_OPENTELEMETRY_ENDPOINT: {{ .Values.server.opentelemetry.endpoint | quote }}
+  OJP_TELEMETRY_CIRCUITBREAKER_ENABLED: {{ .Values.server.opentelemetry.circuitBreaker.enabled | quote }}
   OJP_SERVER_SLOWQUERYSEGREGATION_ENABLED: {{ .Values.server.slowQuerySegregation.enabled | quote }}
   OJP_SERVER_SLOWQUERYSEGREGATION_SLOWSLOTPERCENTAGE: {{ .Values.server.slowQuerySegregation.slowSlotPercentage | quote }}
   OJP_SERVER_SLOWQUERYSEGREGATION_IDLETIMEOUT: {{ .Values.server.slowQuerySegregation.idleTimeout | quote }}

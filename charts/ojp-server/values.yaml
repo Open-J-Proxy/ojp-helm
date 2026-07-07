@@ -13,6 +13,8 @@ server:
   opentelemetry:
     enabled: true
     endpoint: ""
+    circuitBreaker:
+      enabled: true
   slowQuerySegregation:
     enabled: true
     slowSlotPercentage: 20
