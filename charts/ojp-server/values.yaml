@@ -13,6 +13,14 @@ server:
   opentelemetry:
     enabled: true
     endpoint: ""
+    circuitBreaker:
+      enabled: true
+    tracing:
+      enabled: false
+      exporter: "zipkin"
+      endpoint: "http://localhost:9411/api/v2/spans"
+      serviceName: "ojp-server"
+      sampleRate: 1.0
   slowQuerySegregation:
     enabled: true
     slowSlotPercentage: 20
